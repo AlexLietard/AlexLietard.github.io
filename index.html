@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Profile | First-Year Cognitive Science Ph.D. Student</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .profile-pic {
+            transition: all 0.3s ease;
+        }
+        .profile-pic:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        .research-card {
+            transition: all 0.3s ease;
+        }
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .active::after {
+            width: 100%;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            left: -8px;
+            top: 0;
+            background-color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-brain text-3xl text-blue-500"></i>
+                <h1 class="text-2xl font-bold text-gray-800">Cognitive Science Profile</h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link text-gray-600 hover:text-blue-500">About</a>
+                <a href="#research" class="nav-link text-gray-600 hover:text-blue-500">Research</a>
+                <a href="#education" class="nav-link text-gray-600 hover:text-blue-500">Education</a>
+                <a href="#publications" class="nav-link text-gray-600 hover:text-blue-500">Publications</a>
+                <a href="#contact" class="nav-link text-gray-600 hover:text-blue-500">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-600">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-md">
+            <a href="#about" class="block py-2 text-gray-600 hover:text-blue-500">About</a>
+            <a href="#research" class="block py-2 text-gray-600 hover:text-blue-500">Research</a>
+            <a href="#education" class="block py-2 text-gray-600 hover:text-blue-500">Education</a>
+            <a href="#publications" class="block py-2 text-gray-600 hover:text-blue-500">Publications</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-500">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-16">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Alex Chen</h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">First-Year Ph.D. Student in Cognitive Science</h2>
+                <p class="text-lg mb-6">Investigating the neural and computational mechanisms of human decision-making and perception.</p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-white text-blue-600 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition">Contact Me</a>
+                    <a href="#research" class="border-2 border-white px-6 py-2 rounded-full font-medium hover:bg-white hover:text-blue-600 transition">My Research</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                     alt="Alex Chen" 
+                     class="profile-pic w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-white shadow-xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">About Me</h2>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Biography</h3>
+                    <p class="text-gray-600 mb-4">I am a first-year Ph.D. student in the Cognitive Science Department at Prestigious University, working in the Decision Neuroscience Lab under the supervision of Dr. Maria Rodriguez.</p>
+                    <p class="text-gray-600 mb-4">My research interests lie at the intersection of neuroscience, psychology, and artificial intelligence, with a particular focus on understanding how humans make decisions under uncertainty.</p>
+                    <p class="text-gray-600 mb-6">When not in the lab, I enjoy playing chess, reading philosophy of mind, and participating in science outreach programs that make cognitive science accessible to diverse audiences.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+                            <i class="fas fa-file-pdf mr-2"></i>Download CV
+                        </a>
+                        <a href="#" class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300 transition">
+                            <i class="fas fa-briefcase mr-2"></i>Professional Profile
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Research Interests</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                            <i class="fas fa-mind-share text-blue-500 text-xl mb-2"></i>
+                            <h4 class="font-medium text-gray-700">Decision Neuroscience</h4>
+                            <p class="text-sm text-gray-600">Studying neural mechanisms of decision-making using fMRI and EEG.</p>
+                        </div>
+                        <div class="bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                            <i class="fas fa-project-diagram text-indigo-500 text-xl mb-2"></i>
+                            <h4 class="font-medium text-gray-700">Computational Modeling</h4>
+                            <p class="text-sm text-gray-600">Developing cognitive models of human choice behavior.</p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                            <i class="fas fa-eye text-purple-500 text-xl mb-2"></i>
+                            <h4 class="font-medium text-gray-700">Perception & Attention</h4>
+                            <p class="text-sm text-gray-600">Investigating visual perception and attentional mechanisms.</p>
+                        </div>
+                        <div class="bg-teal-50 p-4 rounded-lg border-l-4 border-teal-500">
+                            <i class="fas fa-robot text-teal-500 text-xl mb-2"></i>
+                            <h4 class="font-medium text-gray-700">AI & Cognition</h4>
+                            <p class="text-sm text-gray-600">Comparing human and machine learning strategies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Research Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="research-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-brain text-blue-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Neural Correlates of Risk Perception</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Using fMRI to investigate how the brain represents and processes risk information during economic decision-making tasks.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Neuroscience</span>
+                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Decision Making</span>
+                        <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">fMRI</span>
+                    </div>
+                    <a href="#" class="text-blue-500 hover:text-blue-700 font-medium inline-flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="research-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-chart-line text-indigo-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Drift Diffusion Modeling</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Developing computational models to understand the cognitive processes underlying perceptual decision-making.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Computational</span>
+                        <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Modeling</span>
+                        <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">Decision Making</span>
+                    </div>
+                    <a href="#" class="text-blue-500 hover:text-blue-700 font-medium inline-flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="research-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-eye text-teal-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Visual Attention in VR</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Examining how attention operates in virtual reality environments compared to natural viewing conditions.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-teal-100 text-teal-800 text-xs px-3 py-1 rounded-full">Perception</span>
+                        <span class="bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full">VR</span>
+                        <span class="bg-pink-100 text-pink-800 text-xs px-3 py-1 rounded-full">Eye Tracking</span>
+                    </div>
+                    <a href="#" class="text-blue-500 hover:text-blue-700 font-medium inline-flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-blue-500 text-blue-500 rounded-full hover:bg-blue-50 transition">
+                    <i class="fas fa-book-open mr-2"></i> View All Research Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Education & Experience</h2>
+            
+            <div class="relative max-w-3xl mx-auto">
+                <!-- Timeline line -->
+                <div class="absolute left-1/2 h-full w-0.5 bg-gray-200 transform -translate-x-1/2"></div>
+                
+                <!-- Timeline items -->
+                <div class="space-y-8">
+                    <!-- Ph.D. -->
+                    <div class="relative pl-8 md:pl-16 timeline-item">
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-graduation-cap text-blue-500 mr-3"></i>
+                                <span class="font-semibold text-blue-600">2023 - Present</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">Ph.D. in Cognitive Science</h3>
+                            <p class="text-gray-600 mb-2">Prestigious University</p>
+                            <p class="text-gray-700">Advisor: Dr. Maria Rodriguez | GPA: 3.9/4.0</p>
+                            <p class="text-gray-600 mt-2">Focus on decision neuroscience and computational modeling of cognition. Recipient of the Cognitive Science Fellowship.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Master's -->
+                    <div class="relative pl-8 md:pl-16 timeline-item">
+                        <div class="bg-indigo-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-university text-indigo-500 mr-3"></i>
+                                <span class="font-semibold text-indigo-600">2021 - 2023</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">M.S. in Psychology</h3>
+                            <p class="text-gray-600 mb-2">Top-Tier University</p>
+                            <p class="text-gray-700">Thesis: "Neural Correlates of Risk Preference" | GPA: 3.8/4.0</p>
+                            <p class="text-gray-600 mt-2">Conducted fMRI studies on individual differences in risk-taking behavior.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Bachelor's -->
+                    <div class="relative pl-8 md:pl-16 timeline-item">
+                        <div class="bg-purple-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-book text-purple-500 mr-3"></i>
+                                <span class="font-semibold text-purple-600">2017 - 2021</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">B.S. in Neuroscience</h3>
+                            <p class="text-gray-600 mb-2">State University</p>
+                            <p class="text-gray-700">Minor in Computer Science | GPA: 3.7/4.0 | Summa Cum Laude</p>
+                            <p class="text-gray-600 mt-2">Undergraduate research assistant in the Cognitive Neuroscience Lab.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Research Experience -->
+                    <div class="relative pl-8 md:pl-16 timeline-item">
+                        <div class="bg-teal-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-flask text-teal-500 mr-3"></i>
+                                <span class="font-semibold text-teal-600">Summer 2022</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">Research Intern</h3>
+                            <p class="text-gray-600 mb-2">Decision Science Lab, Tech Research Institute</p>
+                            <p class="text-gray-700">Mentor: Dr. James Wilson</p>
+                            <p class="text-gray-600 mt-2">Investigated cognitive biases in human-AI interaction and co-authored a conference paper.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Publications</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- Journal Publications -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-700 border-b pb-2 flex items-center">
+                        <i class="fas fa-book-journal-whills text-blue-500 mr-3"></i> Journal Articles
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">1. "Neural Signatures of Risk Preference in the Prefrontal Cortex"</h4>
+                            <p class="text-gray-600 mb-2"><span class="font-medium">Chen, A.</span>, Rodriguez, M., Wilson, J. (2023). <em>Journal of Cognitive Neuroscience</em>, 35(4), 789-802.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="#" class="text-sm text-blue-500 hover:text-blue-700 inline-flex items-center">
+                                    <i class="fas fa-link mr-1"></i> DOI
+                                </a>
+                                <a href="#" class="text-sm text-blue-500 hover:text-blue-700 inline-flex items-center">
+                                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                                </a>
+                                <a href="#" class="text-sm text-blue-500 hover:text-blue-700 inline-flex items-center">
+                                    <i class="fas fa-quote-right mr-1"></i> Cite
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Conference Papers -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-700 border-b pb-2 flex items-center">
+                        <i class="fas fa-users-between-lines text-indigo-500 mr-3"></i> Conference Papers
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">1. "Modeling Perceptual Decision Making with Drift Diffusion Models"</h4>
+                            <p class="text-gray-600 mb-2"><span class="font-medium">Chen, A.</span>, Rodriguez, M. (2022). <em>Proceedings of the Annual Meeting of the Cognitive Science Society</em>, 44, 120-135.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="#" class="text-sm text-blue-500 hover:text-blue-700 inline-flex items-center">
+                                    <i class="fas fa-link mr-1"></i> DOI
+                                </a>
+                                <a href="#" class="text-sm text-blue-500 hover:text-blue-700 inline-flex items-center">
+                                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                                </a>
+                                <a href="#" class="text-sm text-blue-500 hover:text-blue-700 inline-flex items-center">
+                                    <i class="fas fa-quote-right mr-1"></i> Cite
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Workshop Papers -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-700 border-b pb-2 flex items-center">
+                        <i class="fas fa-users-rectangle text-purple-500 mr-3"></i> Workshop Papers
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">1. "Cognitive Biases in Human-AI Decision Making"</h4>
+                            <p class="text-gray-600 mb-2">Wilson, J., <span class="font-medium">Chen, A.</span>, et al. (2022). <em>Workshop on Cognitive Aspects of Human-Computer Interaction</em>.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="#" class="text-sm text-blue-500 hover:text-blue-700 inline-flex items-center">
+                                    <i class="fas fa-link mr-1"></i> DOI
+                                </a>
+                                <a href="#" class="text-sm text-blue-500 hover:text-blue-700 inline-flex items-center">
+                                    <i class="fas fa-file-pdf mr-1"></i> PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <a href="#" class="inline-flex items-center px-6 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition">
+                        <i class="fas fa-list mr-2"></i> View Full Publication List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Get In Touch</h2>
+            
+            <div class="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
+                <div class="md:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-sm h-full">
+                        <h3 class="text-2xl font-semibold mb-6 text-gray-700">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Email</h4>
+                                    <p class="text-gray-600">alex.chen@university.edu</p>
+                                    <p class="text-sm text-gray-500 mt-1">Typically respond within 24 hours</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-indigo-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Office</h4>
+                                    <p class="text-gray-600">Room 215, Cognitive Science Building</p>
+                                    <p class="text-gray-600">Prestigious University</p>
+                                    <p class="text-gray-600">123 Academic Way, University Town, ST 12345</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-clock text-purple-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Office Hours</h4>
+                                    <p class="text-gray-600">Tuesday & Thursday: 1:00 PM - 3:00 PM</p>
+                                    <p class="text-gray-600">Or by appointment</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-medium text-gray-800 mb-4">Connect With Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-gray-200 p-3 rounded-full text-gray-700 hover:bg-blue-100 hover:text-blue-500 transition">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-gray-200 p-3 rounded-full text-gray-700 hover:bg-blue-100 hover:text-blue-500 transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="bg-gray-200 p-3 rounded-full text-gray-700 hover:bg-blue-100 hover:text-blue-500 transition">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="bg-gray-200 p-3 rounded-full text-gray-700 hover:bg-blue-100 hover:text-blue-500 transition">
+                                    <i class="fab fa-google-scholar"></i>
+                                </a>
+                                <a href="#" class="bg-gray-200 p-3 rounded-full text-gray-700 hover:bg-blue-100 hover:text-blue-500 transition">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-sm h-full">
+                        <h3 class="text-2xl font-semibold mb-6 text-gray-700">Send a Message</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 mb-2">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                                <select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="">Select a subject</option>
+                                    <option value="research">Research Collaboration</option>
+                                    <option value="advising">Academic Advising</option>
+                                    <option value="speaking">Speaking Engagement</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 mb-2">Message</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition font-medium">
+                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-brain text-2xl text-blue-400 mr-2"></i>
+                        <span class="text-xl font-bold">Alex Chen, Ph.D. Candidate</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">Department of Cognitive Science</p>
+                    <p class="text-gray-400">Prestigious University</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-google-scholar"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Alex Chen. All rights reserved.</p>
+                <p class="mt-2 text-sm">This website was created for academic purposes and does not represent an actual individual.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    mobileMenu.classList.add('hidden');
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
