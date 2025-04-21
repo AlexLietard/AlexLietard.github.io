@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Insights | Science Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --viridis-1: #440154;
+            --viridis-2: #482878;
+            --viridis-3: #3e4989;
+            --viridis-4: #31688e;
+            --viridis-5: #26828e;
+            --viridis-6: #1f9e89;
+            --viridis-7: #35b779;
+            --viridis-8: #6ece58;
+            --viridis-9: #b5de2b;
+            --viridis-10: #fde725;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--viridis-1) 0%, var(--viridis-3) 50%, var(--viridis-5) 100%);
+        }
+        
+        .post-card {
+            background-color: #1e293b;
+            transition: all 0.3s ease;
+            border: 1px solid #334155;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            border-color: var(--viridis-7);
+        }
+        
+        .tag {
+            transition: all 0.2s ease;
+        }
+        
+        .tag:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--viridis-7);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .article-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--viridis-7);
+        }
+        
+        .article-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--viridis-6);
+        }
+        
+        .article-content a {
+            color: var(--viridis-8);
+            text-decoration: underline;
+        }
+        
+        .article-content blockquote {
+            border-left: 4px solid var(--viridis-5);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #94a3b8;
+        }
+        
+        .article-content code {
+            background-color: #334155;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-family: monospace;
+        }
+        
+        .article-content pre {
+            background-color: #334155;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        .toc {
+            background-color: #1e293b;
+            border-left: 4px solid var(--viridis-5);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .toc a {
+            color: var(--viridis-7);
+            text-decoration: none;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                        <i class="fas fa-atom text-2xl" style="color: var(--viridis-7);"></i>
+                    </div>
+                    <h1 class="text-xl font-bold">Quantum Insights</h1>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="nav-link font-medium">Home</a>
+                    <a href="#" class="nav-link font-medium">Physics</a>
+                    <a href="#" class="nav-link font-medium">Biology</a>
+                    <a href="#" class="nav-link font-medium">Chemistry</a>
+                    <a href="#" class="nav-link font-medium">Astronomy</a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="md:hidden text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    <button class="hidden md:block px-4 py-2 rounded-full font-medium" style="background-color: var(--viridis-9); color: var(--viridis-1);">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="bg-slate-800 py-2">
+        <div class="container mx-auto px-4">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="#" class="inline-flex items-center text-sm font-medium hover:text-white">
+                            <i class="fas fa-home mr-2"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-xs mx-2"></i>
+                            <a href="#" class="ml-1 text-sm font-medium hover:text-white">Physics</a>
+                        </div>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-xs mx-2"></i>
+                            <span class="ml-1 text-sm font-medium text-gray-400">Quantum Computing</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Article Content -->
+            <article class="lg:w-2/3">
+                <!-- Article Header -->
+                <header class="mb-8">
+                    <div class="flex space-x-2 mb-4">
+                        <span class="tag px-3 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-2); color: white;">Quantum Physics</span>
+                        <span class="tag px-3 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-5); color: white;">Computing</span>
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4">The Quantum Revolution: How Qubits Are Redefining Computation</h1>
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-gray-600 mr-3 overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/women/42.jpg" alt="Author" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p class="font-medium">Dr. Elena Rodriguez</p>
+                                <p class="text-sm text-gray-400">Quantum Physicist</p>
+                            </div>
+                        </div>
+                        <div class="text-sm text-gray-400">
+                            <i class="far fa-calendar mr-1"></i> June 15, 2023
+                        </div>
+                        <div class="text-sm text-gray-400">
+                            <i class="far fa-clock mr-1"></i> 12 min read
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Image -->
+                    <div class="rounded-xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+                             alt="Quantum computer" class="w-full h-auto object-cover">
+                        <p class="text-xs text-gray-400 mt-1">Image: A quantum computer at IBM Research Lab (Credit: IBM)</p>
+                    </div>
+                    
+                    <!-- Social Sharing -->
+                    <div class="flex items-center justify-between py-4 border-b border-t border-gray-700 mb-6">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-sm text-gray-400">Share:</span>
+                            <a href="#" class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: #1da1f2; color: white;">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: #3b5998; color: white;">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: #0077b5; color: white;">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: #ff4500; color: white;">
+                                <i class="fab fa-reddit-alien"></i>
+                            </a>
+                        </div>
+                        <button class="text-sm flex items-center" style="color: var(--viridis-8);">
+                            <i class="far fa-bookmark mr-1"></i> Save for later
+                        </button>
+                    </div>
+                </header>
+                
+                <!-- Article Content -->
+                <div class="article-content">
+                    <div class="toc mb-8">
+                        <h3 class="font-bold mb-3" style="color: var(--viridis-7);">Table of Contents</h3>
+                        <ul>
+                            <li><a href="#intro">1. Introduction to Quantum Computing</a></li>
+                            <li><a href="#qubits">2. Understanding Qubits</a></li>
+                            <li><a href="#superposition">3. Quantum Superposition</a></li>
+                            <li><a href="#entanglement">4. Quantum Entanglement</a></li>
+                            <li><a href="#applications">5. Practical Applications</a></li>
+                            <li><a href="#challenges">6. Current Challenges</a></li>
+                            <li><a href="#future">7. The Future of Quantum Computing</a></li>
+                        </ul>
+                    </div>
+                    
+                    <h2 id="intro">Introduction to Quantum Computing</h2>
+                    <p>Quantum computing represents a fundamental shift from classical computing paradigms. While classical computers use bits that can be either 0 or 1, quantum computers use quantum bits or <strong>qubits</strong> that can exist in multiple states simultaneously through the principles of quantum mechanics.</p>
+                    
+                    <p>This revolutionary approach was first proposed by physicist Richard Feynman in 1982, who suggested that quantum systems could be simulated more efficiently using other quantum systems rather than classical computers. Since then, the field has grown exponentially, with major tech companies like IBM, Google, and Microsoft investing heavily in quantum research.</p>
+                    
+                    <div class="my-6 p-4 rounded-lg" style="background-color: var(--viridis-1); border-left: 4px solid var(--viridis-7);">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-lightbulb" style="color: var(--viridis-9);"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm font-medium" style="color: var(--viridis-9);">Key Insight</p>
+                                <p class="text-sm mt-1">A quantum computer with just 300 qubits could theoretically perform more calculations simultaneously than there are atoms in the observable universe.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2 id="qubits">Understanding Qubits</h2>
+                    <p>At the heart of quantum computing lies the qubit. Unlike classical bits, qubits can exist in a <strong>superposition</strong> of states, meaning they can be both 0 and 1 simultaneously. This property is what gives quantum computers their potential for massive parallelism.</p>
+                    
+                    <p>Qubits can be implemented using various physical systems:</p>
+                    
+                    <ul class="list-disc pl-6 mb-6 space-y-2">
+                        <li><strong>Superconducting circuits</strong> (used by IBM and Google)</li>
+                        <li><strong>Trapped ions</strong> (used by IonQ and Honeywell)</li>
+                        <li><strong>Topological qubits</strong> (being developed by Microsoft)</li>
+                        <li><strong>Photonic qubits</strong> (used in quantum communication)</li>
+                    </ul>
+                    
+                    <div class="rounded-xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1622295025949-5b1a7d04a0c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                             alt="Qubit diagram" class="w-full h-auto object-cover">
+                        <p class="text-xs text-gray-400 mt-1">Diagram showing different qubit implementations (Credit: Quantum Computing Report)</p>
+                    </div>
+                    
+                    <h2 id="superposition">Quantum Superposition</h2>
+                    <p>Superposition is one of the most counterintuitive yet powerful concepts in quantum mechanics. It allows a quantum system to be in multiple states at once until it's measured, at which point it collapses to a definite state.</p>
+                    
+                    <p>This can be represented mathematically using state vectors. A single qubit's state can be written as:</p>
+                    
+                    <pre class="bg-slate-800 p-4 rounded-lg overflow-x-auto">
+|ψ⟩ = α|0⟩ + β|1⟩
+                    </pre>
+                    
+                    <p>Where α and β are complex numbers representing probability amplitudes, with |α|² + |β|² = 1. When measured, the qubit will be found in state |0⟩ with probability |α|² and in state |1⟩ with probability |β|².</p>
+                    
+                    <h2 id="entanglement">Quantum Entanglement</h2>
+                    <p>Another crucial quantum phenomenon is <strong>entanglement</strong>, which Einstein famously called "spooky action at a distance." When qubits become entangled, the state of one qubit becomes dependent on the state of another, no matter how far apart they are.</p>
+                    
+                    <p>This property enables quantum computers to perform certain calculations much faster than classical computers. For example, Shor's algorithm for factoring large numbers and Grover's algorithm for database search both rely heavily on entanglement.</p>
+                    
+                    <div class="my-6 p-4 rounded-lg" style="background-color: var(--viridis-1); border-left: 4px solid var(--viridis-7);">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-flask" style="color: var(--viridis-9);"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm font-medium" style="color: var(--viridis-9);">Recent Breakthrough</p>
+                                <p class="text-sm mt-1">In 2019, Google achieved quantum supremacy when their 53-qubit processor performed a calculation in 200 seconds that would take the world's fastest supercomputer 10,000 years.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2 id="applications">Practical Applications</h2>
+                    <p>While universal quantum computers are still years away, several practical applications are already emerging:</p>
+                    
+                    <h3>1. Drug Discovery</h3>
+                    <p>Quantum computers can simulate molecular interactions at an atomic level, potentially accelerating drug discovery by years and reducing costs significantly.</p>
+                    
+                    <h3>2. Financial Modeling</h3>
+                    <p>Complex financial models involving risk assessment and portfolio optimization could be solved much faster using quantum algorithms.</p>
+                    
+                    <h3>3. Cryptography</h3>
+                    <p>Quantum computers threaten current encryption methods but also enable quantum cryptography through quantum key distribution (QKD).</p>
+                    
+                    <h3>4. Artificial Intelligence</h3>
+                    <p>Quantum machine learning algorithms could dramatically speed up training processes for complex AI models.</p>
+                    
+                    <h2 id="challenges">Current Challenges</h2>
+                    <p>Despite the exciting potential, quantum computing faces significant hurdles:</p>
+                    
+                    <ul class="list-disc pl-6 mb-6 space-y-2">
+                        <li><strong>Quantum decoherence:</strong> Qubits are extremely fragile and lose their quantum state quickly due to environmental interference.</li>
+                        <li><strong>Error rates:</strong> Current quantum computers have high error rates, requiring quantum error correction techniques.</li>
+                        <li><strong>Scalability:</strong> Building systems with thousands or millions of qubits while maintaining coherence is challenging.</li>
+                        <li><strong>Temperature requirements:</strong> Most quantum computers require near-absolute zero temperatures to operate.</li>
+                    </ul>
+                    
+                    <h2 id="future">The Future of Quantum Computing</h2>
+                    <p>The quantum computing landscape is evolving rapidly. Experts predict that within the next decade we may see:</p>
+                    
+                    <ul class="list-disc pl-6 mb-6 space-y-2">
+                        <li>Fault-tolerant quantum computers with error correction</li>
+                        <li>Hybrid quantum-classical computing architectures</li>
+                        <li>Quantum cloud computing services becoming mainstream</li>
+                        <li>Practical applications in materials science and chemistry</li>
+                    </ul>
+                    
+                    <blockquote>
+                        "Quantum computing will not replace classical computing but will complement it, solving problems that are currently intractable. It's not about doing things faster, but about doing things we couldn't do at all." — Dr. Michio Kaku
+                    </blockquote>
+                    
+                    <p>As research continues and technology advances, quantum computing promises to revolutionize fields from medicine to materials science, cryptography to artificial intelligence. While challenges remain, the potential rewards make this one of the most exciting frontiers in modern science.</p>
+                    
+                    <!-- Article Footer -->
+                    <footer class="mt-12 pt-6 border-t border-gray-700">
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tag px-3 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-2); color: white;">#QuantumComputing</span>
+                            <span class="tag px-3 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-4); color: white;">#Qubits</span>
+                            <span class="tag px-3 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-6); color: white;">#Superposition</span>
+                            <span class="tag px-3 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-8); color: var(--viridis-1);">#FutureTech</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <button class="flex items-center space-x-1 text-gray-400 hover:text-white">
+                                    <i class="far fa-thumbs-up"></i>
+                                    <span>Like (248)</span>
+                                </button>
+                                <button class="flex items-center space-x-1 text-gray-400 hover:text-white">
+                                    <i class="far fa-comment"></i>
+                                    <span>Comment (36)</span>
+                                </button>
+                            </div>
+                            <div>
+                                <button class="text-sm flex items-center" style="color: var(--viridis-8);">
+                                    <i class="fas fa-share-alt mr-1"></i> Share
+                                </button>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </article>
+            
+            <!-- Sidebar -->
+            <aside class="lg:w-1/3 space-y-8">
+                <!-- Author Bio -->
+                <div class="post-card p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 rounded-full bg-gray-600 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/42.jpg" alt="Author" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="font-bold">Dr. Elena Rodriguez</h3>
+                            <p class="text-sm text-gray-400">Quantum Physicist at MIT</p>
+                        </div>
+                    </div>
+                    <p class="text-sm mb-4">Dr. Rodriguez leads the Quantum Information Lab at MIT, focusing on error correction in superconducting qubits. She has published over 50 papers on quantum computing and holds 12 patents.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: var(--viridis-3); color: white;">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: var(--viridis-3); color: white;">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: var(--viridis-3); color: white;">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Related Articles -->
+                <div class="post-card p-6 rounded-xl">
+                    <h3 class="font-bold text-lg mb-4" style="color: var(--viridis-7);">Related Articles</h3>
+                    <div class="space-y-4">
+                        <a href="#" class="flex group">
+                            <div class="w-16 h-16 flex-shrink-0 overflow-hidden rounded-lg mr-4">
+                                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
+                                     alt="Related article" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div>
+                                <h4 class="font-medium group-hover:text-white">Quantum Error Correction Breakthrough</h4>
+                                <p class="text-xs text-gray-400">May 28, 2023</p>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="flex group">
+                            <div class="w-16 h-16 flex-shrink-0 overflow-hidden rounded-lg mr-4">
+                                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
+                                     alt="Related article" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div>
+                                <h4 class="font-medium group-hover:text-white">Topological Qubits: Microsoft's Approach</h4>
+                                <p class="text-xs text-gray-400">April 15, 2023</p>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="flex group">
+                            <div class="w-16 h-16 flex-shrink-0 overflow-hidden rounded-lg mr-4">
+                                <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
+                                     alt="Related article" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div>
+                                <h4 class="font-medium group-hover:text-white">Quantum Machine Learning Explained</h4>
+                                <p class="text-xs text-gray-400">March 22, 2023</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="post-card p-6 rounded-xl" style="background-color: var(--viridis-1);">
+                    <h3 class="font-bold text-lg mb-2 text-white">Stay Updated</h3>
+                    <p class="text-sm mb-4 text-gray-300">Get the latest quantum computing insights delivered to your inbox weekly.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg w-full focus:outline-none text-gray-800">
+                        <button class="px-4 py-2 rounded-r-lg font-medium" style="background-color: var(--viridis-9); color: var(--viridis-1);">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <p class="text-xs mt-2 text-gray-400">We respect your privacy. Unsubscribe at any time.</p>
+                </div>
+                
+                <!-- Popular Tags -->
+                <div class="post-card p-6 rounded-xl">
+                    <h3 class="font-bold text-lg mb-4" style="color: var(--viridis-7);">Popular Tags</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="#" class="tag px-3 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-1); color: white;">Quantum Physics</a>
+                        <a href="#" class="tag px-3 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-3); color: white;">Superconductivity</a>
+                        <a href="#" class="tag px-3 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-5); color: white;">Qubits</a>
+                        <a href="#" class="tag px-3 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-7); color: white;">Entanglement</a>
+                        <a href="#" class="tag px-3 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-9); color: var(--viridis-1);">Algorithms</a>
+                        <a href="#" class="tag px-3 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-2); color: white;">Cryogenics</a>
+                        <a href="#" class="tag px-3 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-4); color: white;">Error Correction</a>
+                        <a href="#" class="tag px-3 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-6); color: white;">Quantum Supremacy</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- More Articles -->
+    <section class="container mx-auto px-4 py-8">
+        <h2 class="text-2xl font-bold mb-6" style="color: var(--viridis-7);">More Articles You Might Enjoy</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Article 1 -->
+            <div class="post-card rounded-xl overflow-hidden">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Article image" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                </div>
+                <div class="p-6">
+                    <div class="flex space-x-2 mb-3">
+                        <span class="tag px-2 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-3); color: white;">Physics</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">The Search for Majorana Fermions</h3>
+                    <p class="text-sm text-gray-400 mb-4">How these exotic particles could revolutionize quantum computing and why Microsoft is betting big on them.</p>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-gray-500">May 28, 2023</span>
+                        <span class="text-gray-500">8 min read</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Article 2 -->
+            <div class="post-card rounded-xl overflow-hidden">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Article image" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                </div>
+                <div class="p-6">
+                    <div class="flex space-x-2 mb-3">
+                        <span class="tag px-2 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-5); color: white;">AI</span>
+                        <span class="tag px-2 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-7); color: white;">Quantum</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Quantum Machine Learning Explained</h3>
+                    <p class="text-sm text-gray-400 mb-4">How quantum algorithms could dramatically speed up training processes for complex AI models.</p>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-gray-500">April 15, 2023</span>
+                        <span class="text-gray-500">10 min read</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Article 3 -->
+            <div class="post-card rounded-xl overflow-hidden">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Article image" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                </div>
+                <div class="p-6">
+                    <div class="flex space-x-2 mb-3">
+                        <span class="tag px-2 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-2); color: white;">Chemistry</span>
+                        <span class="tag px-2 py-1 rounded-full text-xs font-bold" style="background-color: var(--viridis-6); color: white;">Quantum</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Simulating Molecules with Quantum Computers</h3>
+                    <p class="text-sm text-gray-400 mb-4">Breakthroughs in quantum chemistry simulations that could revolutionize materials science.</p>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-gray-500">March 22, 2023</span>
+                        <span class="text-gray-500">7 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12" style="background-color: var(--viridis-1); color: white;">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                            <i class="fas fa-atom text-2xl" style="color: var(--viridis-1);"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Quantum Insights</h3>
+                    </div>
+                    <p class="mb-4 opacity-75">Exploring the frontiers of quantum physics, computing, and technology through in-depth analysis and research.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 rounded-full bg-white flex items-center justify-center" style="color: var(--viridis-1);">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white flex items-center justify-center" style="color: var(--viridis-1);">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white flex items-center justify-center" style="color: var(--viridis-1);">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white flex items-center justify-center" style="color: var(--viridis-1);">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Categories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="opacity-75 hover:opacity-100">Quantum Physics</a></li>
+                        <li><a href="#" class="opacity-75 hover:opacity-100">Quantum Computing</a></li>
+                        <li><a href="#" class="opacity-75 hover:opacity-100">Quantum Materials</a></li>
+                        <li><a href="#" class="opacity-75 hover:opacity-100">Quantum Biology</a></li>
+                        <li><a href="#" class="opacity-75 hover:opacity-100">Quantum Information</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="opacity-75 hover:opacity-100">About Us</a></li>
+                        <li><a href="#" class="opacity-75 hover:opacity-100">Contact</a></li>
+                        <li><a href="#" class="opacity-75 hover:opacity-100">Privacy Policy</a></li>
+                        <li><a href="#" class="opacity-75 hover:opacity-100">Terms of Service</a></li>
+                        <li><a href="#" class="opacity-75 hover:opacity-100">Submit an Article</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Subscribe</h4>
+                    <p class="mb-4 opacity-75">Get the latest quantum insights delivered to your inbox weekly.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg w-full focus:outline-none text-gray-800">
+                        <button class="px-4 py-2 rounded-r-lg font-medium" style="background-color: var(--viridis-9); color: var(--viridis-1);">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center opacity-75">
+                <p>© 2023 Quantum Insights. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.md\\:hidden').addEventListener('click', function() {
+            // This would toggle a mobile menu in a real implementation
+            alert('Mobile menu would open here in a complete implementation');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add hover effect to post cards
+        document.querySelectorAll('.post-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 10px 25px -5px rgba(0, 0, 0, 0.3)';
+                if (this.classList.contains('post-card')) {
+                    this.style.borderColor = 'var(--viridis-7)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '';
+                if (this.classList.contains('post-card')) {
+                    this.style.borderColor = '#334155';
+                }
+            });
+        });
+        
+        // Like button functionality
+        document.querySelectorAll('.far.fa-thumbs-up').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.classList.contains('far')) {
+                    this.classList.remove('far');
+                    this.classList.add('fas');
+                    this.style.color = 'var(--viridis-7)';
+                } else {
+                    this.classList.remove('fas');
+                    this.classList.add('far');
+                    this.style.color = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
